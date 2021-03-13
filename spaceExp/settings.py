@@ -26,7 +26,7 @@ SECRET_KEY = '!fshjhwb3f=uhmtem@!9503euiix_%_x__i4*1o_y*g(5=^e9y'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1','sampledomain.com']
+ALLOWED_HOSTS = ['127.0.0.1','spacexlaunchesbyhs.herokuapp.com']
 
 
 # Application definition
