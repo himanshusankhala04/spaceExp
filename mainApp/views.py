@@ -10,10 +10,10 @@ def index(request):
     if request.method == "GET" and request.is_ajax():
         url = "https://api.spaceXdata.com/v3/launches?limit=100"
         url += request.GET['addurl']
-        print("in here")
+        
     else:
         url = "https://api.spaceXdata.com/v3/launches?limit=100"
-    print(url)
+    
     try:
         response = requests.get(url)
         data = response.json()
