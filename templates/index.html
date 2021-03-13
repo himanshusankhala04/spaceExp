@@ -1,0 +1,197 @@
+{% load static %}
+<!doctype html>
+
+<html>
+    <head>
+        <title>SpaceX Launches</title>
+
+         <link rel = "icon" href = "https://img.icons8.com/material-sharp/24/000000/space-shuttle.png" 
+        type = "image/x-icon"> 
+        
+
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+        <meta name="viewport" content="width=device-width">
+
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js">
+        </script>
+        <script>
+        
+            $(document).ready(function(){
+                $('input[type="radio"]').click(function(){
+                    
+                    var addurl = "";
+                    var rvalue = $('input[name="slaunch"]:checked').val();
+                    if(rvalue){
+                        addurl = addurl+"&launch_success="+String(rvalue);
+                    }
+                    var rvalue = $('input[name="slanding"]:checked').val();
+                    if(rvalue){
+                        addurl = addurl+"&land_success="+String(rvalue);
+                    }
+                    var rvalue = $('input[name="year"]:checked').val();
+                    if(rvalue){
+                        addurl = addurl+"&launch_year="+String(rvalue);
+                    }
+                    
+
+                    $.ajax({
+                        
+                        url:"{% url 'index' %}",
+                        type:"GET",
+                        data:{addurl: addurl},
+                        success: function(data){
+                            var html = $(data).filter('#refresh').html();
+                            $("#refresh").html(html);
+                        }
+                        
+                    });
+
+                });
+            });
+        </script>
+    </head>
+    <body>
+        
+        <header><h1>SpaceX Launch Programs</h1></header>
+
+        <!--Filter start-->
+        <div class="space">
+        <div class="fill card" >
+            <div class="inner">
+            
+                <p class="filter"><strong>Filters</strong></p>
+
+                <p class="f_title">Launch Year</p>
+                <hr>
+
+                <fieldset>
+                    <input type="radio" name="year" value="2006" id="2006">
+                    <label for="2006">2006</label>
+                    <input type="radio" name="year" value="2007" id="2007">
+                    <label for="2007">2007</label>
+                </fieldset>
+                <fieldset>
+                    <input type="radio" name="year" value="2008" id="2008">
+                    <label for="2008">2008</label>
+                    <input type="radio" name="year" value="2009" id="2009">
+                    <label for="2009">2009</label>
+                </fieldset>
+                <fieldset>
+                    <input type="radio" name="year" value="2010" id="2010">
+                    <label for="2010">2010</label>
+                    <input type="radio" name="year" value="2011" id="2011">
+                    <label for="2011">2011</label>
+                </fieldset>
+                
+                <fieldset>
+                    <input type="radio" name="year" value="2012" id="2012">
+                    <label for="2012">2012</label>
+                    <input type="radio" name="year" value="2013" id="2013">
+                    <label for="2013">2013</label>
+                </fieldset>
+                <fieldset>
+                    <input type="radio" name="year" value="2014" id="2014">
+                    <label for="2014">2014</label>
+                    <input type="radio" name="year" value="2015" id="2015"> 
+                    <label for="2015">2015</label>
+                </fieldset>
+                <fieldset>
+                    <input type="radio" name="year" value="2016" id="2016">
+                    <label for="2016">2016</label>
+                    <input type="radio" name="year" value="2017" id="2017">
+                    <label for="2017">2017</label>
+                </fieldset>
+                <fieldset>
+                    <input type="radio" name="year" value="2018" id="2018">
+                    <label for="2018">2018</label>
+                    <input type="radio" name="year" value="2019" id="2019">
+                    <label for="2019">2019</label>
+                </fieldset>
+                <fieldset>
+                    <input type="radio" name="year" value="2020" id="2020">
+                    <label for="2020">2020</label>
+                    
+                </fieldset>
+
+                <p class="f_title">Successful Launch</p>
+                <hr>
+                <fieldset>
+                    <input type="radio" name="slaunch" value="true" id="true1">
+                    <label for="true1">True</label>
+                    <input type="radio" name="slaunch" value="false" id="false1">
+                    <label for="false1">False</label>
+                </fieldset>
+
+                <p class="f_title">Successful Landing</p>
+                <hr>
+                <fieldset>
+                    <input type="radio" name="slanding" value="true" id="true2">
+                    <label for="true2">True</label>
+                    <input type="radio" name="slanding" value="false" id="false2">
+                    <label for="false2">False</label>
+                </fieldset>
+            </div>
+        </div>
+        </div>
+        <!--Filter end-->
+
+        <!--ajax update-->
+        <div id="refresh">
+            <div class="grid">
+            {% if status_code == 200 %}
+                {% for i in element %}
+
+
+                    <!--Info Card start-->
+                    <div class="col-3 card info" >
+                        <div class="image1">
+                            <img src={{i.image1}} alt={{i.name}} width="90%">
+                        </div>
+                        <div class="content">
+                            <p class="c_title"><strong>{{i.name}}</strong></p>
+                            <p class="c_details"><strong>Mission Ids:</strong> </p>
+                                <ul>
+                                    {% for j in i.mission_ids%}
+                                        <li>{{j}}</li>
+                                    {% endfor %}
+                                </ul>
+                                
+                            <p class="c_details"><strong>Launch year:</strong> <span>{{i.launch_yrs}}</span> </p>
+                            <p class="c_details"><strong>Successful Launch: </strong> <span>{{i.launch_suc}}</span> </p>
+                            <p class="c_details"><strong>Successful landing:</strong> <span>{{i.land_suc}}</span> </p>
+                        </div>
+                    </div>
+                
+                {% endfor %}
+            {% else %}
+                <div class="nodata">
+                    <center><h2><br><br><br><br><br><br><br><br><br><br>Data Not Found!</h2></center>
+                </div>
+            {% endif %}
+            <!--Info Card end-->
+            </div>
+        </div>
+
+
+
+        <footer>
+            <p> <strong>Developed by:</strong> Himanshu Sankhala</p>
+        </footer>
+        
+
+    </body>
+    <script>
+        var radios = document.getElementsByTagName('input');
+        for(i=0; i<radios.length; i++ ) {
+            radios[i].onclick = function(e) {
+                if(e.ctrlKey || e.metaKey) {
+                    this.checked = false;
+                }
+            }
+        }
+    </script>
+    
+</html>
+
+
+
