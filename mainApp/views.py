@@ -27,7 +27,7 @@ def index(request):
                                 'launch_yrs':dic1['launch_year'], 
                                 'launch_suc':str(dic1['launch_success']), 
                                 'land_suc':str(dic1['rocket']['first_stage']['cores'][0]['land_success']),
-                                'image1':dic1['links']['mission_patch']})
+                                'image1':dic1['links']['mission_patch_small']})
             
         
 
