@@ -32,7 +32,7 @@ https://spacexlaunchesbyhs.herokuapp.com/
    <br>
 5) Lighthouse score <br>
    Overall score:<br>
-   ![alt text](https://github.com/himanshusankhala04/spaceExp/blob/master/lightscore.PNG?raw=true)<br>
+   ![alt text](https://github.com/himanshusankhala04/spaceExp/blob/master/lighthousescore.PNG?raw=true)<br>
    
    Because of api call limit is 100 there is slow loading time which leads to performace drop and also image taking some time to load. <br>
    This can be improve further by displaying light weight images to the site or load site partially as per 100% dispalyed or by using multithreading approach. <br>
