@@ -8,11 +8,11 @@ import json
 def index(request):
     element=[]
     if request.method == "GET" and request.is_ajax():
-        url = "https://api.spaceXdata.com/v3/launches?limit=10"
+        url = "https://api.spaceXdata.com/v3/launches?limit=100"
         url += request.GET['addurl']
         
     else:
-        url = "https://api.spaceXdata.com/v3/launches?limit=10"
+        url = "https://api.spaceXdata.com/v3/launches?limit=100"
     
     try:
         response = requests.get(url)
