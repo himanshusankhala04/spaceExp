@@ -31,5 +31,5 @@ https://spacexlaunchesbyhs.herokuapp.com/
    <br>
 5) Lighthouse score <br>
    Overall score:<br>
-   ![alt text](https://github.com/himanshusankhala04/spaceExp/images/blob/master/capture.PNG?raw=true)<br>
+   ![alt text](https://github.com/himanshusankhala04/spaceExp/blob/master/Capture.PNG?raw=true)<br>
    
