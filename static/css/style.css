@@ -1,20 +1,10 @@
 /*for mobile*/
 @media (max-width:700px){
    
-    .col-3{
-        width:100%;
     
-    }
-    .space{
-        width: 100%;
-    }
-    
-    .fill{
-        width: 100%;
-    }
     .card{
-        
-        margin: 20px 20px 20px 20px;
+        width: 100%;
+        margin: 20px 0px 20px 0px;
     }
 
     .filter{
@@ -286,7 +276,9 @@ header{
 }
 
 /*filter */
-
+.filter{
+    margin-left: 2rem;
+}
 
 fieldset{
     border:none;
@@ -321,6 +313,18 @@ label:hover {
 input:checked + label{
     background: #008d2a;
     color: #fff;
+}
+
+.btn{
+    text-align: right;
+    margin-right: 20%;
+
+    margin-bottom: 5%;
+}
+
+
+.btclear {
+    border: none;
 }
 
 

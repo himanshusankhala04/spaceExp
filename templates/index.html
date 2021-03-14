@@ -5,7 +5,7 @@
     <head>
         <title>SpaceX Launches</title>
 
-         <link rel = "icon" href = "https://img.icons8.com/material-sharp/24/000000/space-shuttle.png" 
+        <link rel = "icon" href = "https://img.icons8.com/material-sharp/24/000000/space-shuttle.png" 
         type = "image/x-icon"> 
         
 
@@ -23,14 +23,17 @@
                     var rvalue = $('input[name="slaunch"]:checked').val();
                     if(rvalue){
                         addurl = addurl+"&launch_success="+String(rvalue);
+                        $(':input[type="submit"]').prop('disabled',false);
                     }
                     var rvalue = $('input[name="slanding"]:checked').val();
                     if(rvalue){
                         addurl = addurl+"&land_success="+String(rvalue);
+                        $(':input[type="submit"]').prop('disabled',false);
                     }
                     var rvalue = $('input[name="year"]:checked').val();
                     if(rvalue){
                         addurl = addurl+"&launch_year="+String(rvalue);
+                        $(':input[type="submit"]').prop('disabled',false);
                     }
                     
 
@@ -47,6 +50,28 @@
                     });
 
                 });
+            });
+
+
+            $(document).ready(function(){
+                $('input[type="submit"]').click(function(){
+                    $(':input[type="submit"]').prop('disabled',true);
+                    $(':input[type="radio"]').prop('checked',false);
+                    var addurl = "";
+                    $.ajax({
+                        
+                        url:"{% url 'index' %}",
+                        type:"GET",
+                        data:{addurl: addurl},
+                        success: function(data){
+                            var html = $(data).filter('#refresh').html();
+                            $("#refresh").html(html);
+                        }
+                        
+                    });
+                });
+                
+                
             });
         </script>
     </head>
@@ -113,6 +138,8 @@
                     
                 </fieldset>
 
+                
+
                 <p class="f_title">Successful Launch</p>
                 <hr>
                 <fieldset>
@@ -130,6 +157,9 @@
                     <input type="radio" name="slanding" value="false" id="false2">
                     <label for="false2">False</label>
                 </fieldset>
+                <div class="btn">
+                <input type="submit" class="btclear" value="Clear" disabled></input>
+                </div>
             </div>
         </div>
         </div>
