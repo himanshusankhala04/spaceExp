@@ -32,11 +32,11 @@ https://spacexlaunchesbyhs.herokuapp.com/
    <br>
 5) Lighthouse score <br>
    Overall score:<br>
-   ![alt text](https://github.com/himanshusankhala04/spaceExp/blob/master/Capture.PNG?raw=true)<br>
+   ![alt text](https://github.com/himanshusankhala04/spaceExp/blob/master/lightscore.PNG?raw=true)<br>
    
    Because of api call limit is 100 there is slow loading time which leads to performace drop and also image taking some time to load. <br>
    This can be improve further by displaying light weight images to the site or load site partially as per 100% dispalyed or by using multithreading approach. <br>
-   As well as SEO can we improve just by giving meda data to the website.
+   
    <br>
 6) Potential changes to make for website to look better will be to go tor React js for more user friendly UI.<br>
    More over it requires some featur update such as need of search bar for searching, api call data fetching limit in filter, button to get more info about Launches, etc<br> 
