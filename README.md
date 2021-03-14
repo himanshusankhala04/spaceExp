@@ -36,7 +36,12 @@ https://spacexlaunchesbyhs.herokuapp.com/
    
    Because of api call limit is 100 there is slow loading time which leads to performace drop and also image taking some time to load. <br>
    This can be improve further by displaying light weight images to the site or load site partially as per 100% dispalyed or by using multithreading approach. <br>
-   
+   improvements to make:<br>
+      Image element <br>
+      Minimize main thread work<br>
+      Serve static assets with cache policy<br>
+      Avoid an Excessive DOM size<br>
+      Transfer should be samll<br>
    <br>
 6) Potential changes to make for website to look better will be to go tor React js for more user friendly UI.<br>
    More over it requires some featur update such as need of search bar for searching, api call data fetching limit in filter, button to get more info about Launches, etc<br> 
